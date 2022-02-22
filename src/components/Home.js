@@ -11,6 +11,7 @@ function Home() {
         leftBtnText='CUSTOM ORDER'
         rightBtnText='EXISTING INVENTORY'
         backgroundImg='https://wallpaperaccess.com/full/486595.jpg'
+        first
       />
       <Section
         title='Model 3'

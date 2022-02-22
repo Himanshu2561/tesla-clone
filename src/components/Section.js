@@ -1,22 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
+import Fade from 'react-reveal/Fade'
 
 function Section(props) {
   console.log(props)
   return (
     <Wrap bgImg={props.backgroundImg}>
-      <ItemText>
-        <h1>{props.title}</h1>
-        <p>{props.description}</p>
-      </ItemText>
+      <Fade bottom>
+        <ItemText>
+          <h1>{props.title}</h1>
+          <p>{props.description}</p>
+        </ItemText>
+      </Fade>
       <Button>
+          <Fade bottom>
         <ButtonGroup>
           {props.leftBtnText && <LeftButton>{props.leftBtnText}</LeftButton>}
           {props.rightBtnText && (
             <RightButton>{props.rightBtnText}</RightButton>
           )}
         </ButtonGroup>
-        {!props.last && <DownArrow src='/images/down-arrow-removebg-preview.png' />}
+        </Fade>
+        {!props.last && (
+          <DownArrow src='/images/down-arrow-removebg-preview.png' />
+        )}
       </Button>
     </Wrap>
   )
@@ -29,22 +36,23 @@ const Wrap = styled.div`
   width: 100vw;
   height: 100vh;
   background-size: cover;
-  background-position: centre;
+  background-position: 50% 50%;
   background-repeat: not-repeat;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: centre;
+  align-items: center;
   background-image: ${(props) => `url('${props.bgImg}')`};
 `
 
 const ItemText = styled.div`
   padding-top: 15vh;
-  text-align: centre;
+  text-align: center;
 `
 
 const ButtonGroup = styled.div`
   display: flex;
+  align-items: center;
   margin-bottom: 30px;
   @media (max-width: 768px) {
     flex-direction: column;
@@ -61,6 +69,8 @@ const LeftButton = styled.div`
   text-transform: uppercase;
   font-size: 13px;
   margin: auto;
+  margin-left: 10px;
+  margin-right: 10px;
   margin-top: 20px;
   cursor: pointer;
 `
